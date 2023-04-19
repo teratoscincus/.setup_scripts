@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+WARNING="\033[1;31mWARNING\033[0m: "
+SUCCESS="\033[1;31mSUCCESS\033[0m: "
+NOTE="\033[1;31mNOTE\033[0m: "
+
+# XBPS PACKAGES
+
+# List of manually installed packages
+PACKAGE_LIST="./packages.txt"
+if [[ -f $PACKAGE_LIST ]]; then
+	sudo xbps-install -Su
+	sudo xbps-install -S "$(cat "$PACKAGE_LIST")"
+else
+	echo -e "\n${WARNING}Missing list of XBPS packages"
+	echo "  Couldn't locate $PACKAGE_LIST"
+	exit 1
+fi
+
+# OTHER PACKAGES
+
+# Node & NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+nvm install --lts
+nvm use --lts
+
+# SERVICES
+
+enable_service() {
+	# Takes an arbitrary number of string arguments and enables their service
+	# if they are installed.
+	ORIGIN="/etc/sv"
+	SERVICES="/var/service"
+	for service in "${@}"; do
+		if [[ -d "$ORIGIN/$service/" ]]; then
+			sudo ln -s "$ORIGIN/$service/" "$SERVICES/"
+		else
+			echo "${WANRING}Failed to enable $service"
+		fi
+	done
+}
+
+disable_service() {
+	# Takes an arbitrary number of string arguments and disables their service
+	# if they are enabeled.
+	SERVICES="/var/service"
+	for service in "${@}"; do
+		if [[ -d "$SERVICES/$service" ]]; then
+			sudo rm "$SERVICES/$service"
+		fi
+	done
+}
+
+# UTILITY SERVICES
+
+# Dbus
+enable_service "dbus"
+
+# Udev
+enable_service "udevd"
+
+# NetworkManager
+disable_service "dhcpcd" "wpa_supplicant" "wicd"
+enable_service "NetworkManager"
+
+# acpid
+enable_service "acpid"
+
+# Alsa
+enable_service "alsa"
+
+# Bluetooth
+enable_service "bluetoothd"
+
+# Printers
+enable_service "cups"
+
+# DEV TOOL SERVICES
+
+# Docker
+enable_service "containerd"
+enable_service "docker"
+
+# MINIMAL XINIT CONFIG
+
+XINITRC="$HOME/.xinitrc"
+MINIMAL_XINITRC="
+#!/bin/bash
+pulseaudio &
+exec dbus-run-session /bin/qtile start"
+
+if [[ -f $XINITRC ]]; then
+	cat "$MINIMAL_XINITRC" >>"$XINITRC"
+else
+	touch "$XINITRC"
+	echo "#!/usr/bin/env bash" >>"$XINITRC"
+	echo "$MINIMAL_XINITRC" >>"$XINITRC"
+fi
+
+# SUCCESS MESSAGE
+
+echo -e "\n${SUCCESS}Packages and servises setup!"
+echo "  You may now restart your system"
+
+echo -e "\n${NOTE}You may want to fetch your dotfiles before rebooting!"
