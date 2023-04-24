@@ -34,11 +34,13 @@ libreoffice-writer
 linux-firmware
 lua-devel
 luarocks
+mesa-dri
 neofetch
 neovim
 nerd-fonts
 network-manager-applet
 obs
+openjdk17
 openssl-devel
 pass
 pass-git-helper
