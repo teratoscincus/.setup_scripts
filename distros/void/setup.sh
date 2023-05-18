@@ -26,6 +26,9 @@ export NVM_DIR="$HOME/.nvm"
 nvm install --lts
 nvm use --lts
 
+# Youtube-dl
+pip install --upgrade "git+https://github.com/ytdl-org/youtube-dl.git"
+
 # SERVICES
 
 enable_service() {
