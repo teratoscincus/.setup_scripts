@@ -86,8 +86,7 @@ enable_service "power-profiles-daemon"
 # DEV TOOL SERVICES
 
 # Docker
-enable_service "containerd"
-enable_service "docker"
+enable_service "containerd" "docker"
 
 # MINIMAL XINIT CONFIG
 
