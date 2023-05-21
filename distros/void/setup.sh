@@ -80,6 +80,9 @@ enable_service "bluetoothd"
 # Printers
 enable_service "cups"
 
+# Power profiles
+enable_service "power-profiles-daemon"
+
 # DEV TOOL SERVICES
 
 # Docker
