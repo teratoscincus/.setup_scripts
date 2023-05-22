@@ -19,8 +19,16 @@ fi
 
 # OTHER PACKAGES
 
+# Pyenv
+# Build requirements
+xbps-install base-devel libffi-devel bzip2-devel openssl openssl-devel readline readline-devel sqlite-devel xz liblzma-devel zlib zlib-devel
+git clone https://github.com/pyenv/pyenv.git "$HOME"/.pyenv
+# Optional: Compile dynamic bash extension to speed up Pyenv.
+cd "$HOME"/.pyenv && src/configure && make -C src
+
 # Node & NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+# Setup
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install --lts
