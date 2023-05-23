@@ -111,7 +111,8 @@ fi
 
 # SUCCESS MESSAGE
 
-echo -e "\n${SUCCESS}Packages and servises setup!"
+echo -e "\n${SUCCESS}Packages and services setup!"
 echo "  You may now restart your system"
 
 echo -e "\n${NOTE}You may want to fetch your dotfiles before rebooting!"
+echo -e "${NOTE}You may want to change your default shell!"
