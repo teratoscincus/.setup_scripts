@@ -102,7 +102,7 @@ pulseaudio &
 exec dbus-run-session /bin/qtile start"
 
 if [[ -f $XINITRC ]]; then
-	cat "$MINIMAL_XINITRC" >>"$XINITRC"
+	echo "$MINIMAL_XINITRC" >>"$XINITRC"
 else
 	touch "$XINITRC"
 	echo "#!/usr/bin/env bash" >>"$XINITRC"
