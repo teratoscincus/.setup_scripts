@@ -34,6 +34,10 @@ export NVM_DIR="$HOME/.nvm"
 nvm install --lts
 nvm use --lts
 
+# Navi
+# https://github.com/denisidoro/navi
+bash <(curl -sL https://raw.githubusercontent.com/denisidoro/navi/master/scripts/install)
+
 # Youtube-dl
 pip install --upgrade "git+https://github.com/ytdl-org/youtube-dl.git"
 

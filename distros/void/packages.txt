@@ -23,6 +23,7 @@ docker
 feh
 firefox
 font-awesome6
+fzf
 gimp
 google-chrome
 gpick
