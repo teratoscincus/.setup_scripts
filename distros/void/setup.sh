@@ -39,6 +39,10 @@ nvm use --lts
 
 # Jenv
 git clone https://github.com/jenv/jenv.git ~/.jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+jenv enable-plugin export
+jenv add /usr/lib/jvm/openjdk17/
 
 # Navi
 # https://github.com/denisidoro/navi
