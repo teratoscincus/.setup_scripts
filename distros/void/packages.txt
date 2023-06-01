@@ -65,6 +65,7 @@ python3-pipenv
 qtile
 readline
 readline-devel
+ripgrep
 rofi
 setxkbmap
 sqlite-devel
@@ -79,7 +80,6 @@ unclutter
 void-repo-multilib
 void-repo-multilib-nonfree
 void-repo-nonfree
-vscode
 vulkan-loader-32bit
 wget
 xclip
