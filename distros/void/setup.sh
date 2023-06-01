@@ -111,7 +111,6 @@ enable_service "containerd" "docker"
 
 XINITRC="$HOME/.xinitrc"
 MINIMAL_XINITRC="
-#!/bin/bash
 pulseaudio &
 exec dbus-run-session /bin/qtile start"
 
