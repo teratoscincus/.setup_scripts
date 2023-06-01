@@ -6,6 +6,7 @@ apulse
 base-devel
 base-system
 bash-completion
+bat
 betterlockscreen
 blueman
 bluez

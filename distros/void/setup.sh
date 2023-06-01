@@ -18,6 +18,9 @@ else
 fi
 
 # OTHER PACKAGES
+# NOTE: Additional configuration for these may be needed.
+# This can include extending $PATH and other environmental variables, or setting various
+# `eval $(<package> init - )` in the shell configuration.
 
 # Pyenv
 # Build requirements
@@ -33,6 +36,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install --lts
 nvm use --lts
+
+# Jenv
+git clone https://github.com/jenv/jenv.git ~/.jenv
 
 # Navi
 # https://github.com/denisidoro/navi
