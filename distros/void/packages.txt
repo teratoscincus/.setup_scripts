@@ -2,6 +2,7 @@ NetworkManager
 Thunar
 alsa-plugins-pulseaudio
 alsa-utils
+apache-maven
 apulse
 base-devel
 base-system
@@ -28,10 +29,12 @@ fzf
 gimp
 google-chrome
 gpick
+gradle
 grub-x86_64-efi
 gutenprint
 gvfs
 htop
+intellij-idea-community-edition
 libdrm-32bit
 libffi-devel
 libgcc-32bit
@@ -53,6 +56,7 @@ nerd-fonts
 network-manager-applet
 obs
 openjdk17
+openjdk8
 openssl-devel
 openvpn
 pass
@@ -81,6 +85,7 @@ void-repo-multilib
 void-repo-multilib-nonfree
 void-repo-nonfree
 vulkan-loader-32bit
+weechat
 wget
 xclip
 xf86-video-ati
