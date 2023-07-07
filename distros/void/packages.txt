@@ -19,6 +19,7 @@ cups
 cups-pdf
 cups-pk-helper
 dbus
+delta
 discord
 dmenu
 docker
@@ -27,6 +28,7 @@ firefox
 font-awesome6
 fzf
 gimp
+glow
 google-chrome
 gpick
 gradle
